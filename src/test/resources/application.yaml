@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: sample-reactor-kafka-springboot
+
+kafka:
+  receiverTopic: input
+  kafkaBootstrapServers: "${spring.embedded.kafka.brokers}"
+  retryBackoffMs: 1000
+  clientId: "seetha"
+  # PublisherConfiguration
+  publisherTopic: output
+  acks: all
+  maxRequestSize: 1049600
+  retries: 2000
+  lingerMs: 5
+  # ReceiverConfiguration
+  groupId: "chauncey"
+  autoOffsetReset: earliest
